@@ -54,7 +54,7 @@ export const PROJECTS: Project[] = [
     ],
     image: "/Movie.png",
     liveLink: "https://movies-web-app-dun.vercel.app/",
-    githubLink: "https://github.com/abdallahmohamedien",
+    githubLink: "https://github.com/abdallahmohamedien/movies-web-app",
     category: "Web Application",
   },
   {
@@ -65,7 +65,7 @@ export const PROJECTS: Project[] = [
     tags: ["Vue 3", "TypeScript", "API Integration", "Tailwind CSS"],
     image: "/Weather.png",
     liveLink: "https://weather-web-app-theta-five.vercel.app/",
-    githubLink: "https://github.com/abdallahmohamedien",
+    githubLink: "https://github.com/abdallahmohamedien/weather-web-app",
     category: "Frontend",
   },
   {
@@ -76,7 +76,7 @@ export const PROJECTS: Project[] = [
     tags: ["Vue.js", "Tailwind CSS", "JavaScript"],
     image: "/Attend.png",
     liveLink: "https://attendance-project-gilt.vercel.app/login",
-    githubLink: "https://github.com/abdallahmohamedien",
+    githubLink: "https://github.com/abdallahmohamedien/FE-project",
     category: "Frontend",
   },
   {

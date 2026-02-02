@@ -5,13 +5,10 @@ import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { IconType } from "react-icons";
 
 import {
-    SiHtml5,
-    SiCss3,
     SiJavascript,
     SiReact,
     SiNextdotjs,
     SiTailwindcss,
-    SiBootstrap,
     SiVuedotjs,
     SiNodedotjs,
     SiMongodb,

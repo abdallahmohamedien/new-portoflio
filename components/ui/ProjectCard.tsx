@@ -39,7 +39,6 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                     {project.description}
                 </p>
 
-                {/* Tags Section - هنا قمنا بتغيير tech إلى tags */}
                 <div className="flex gap-2 flex-wrap">
                     {project.tags.map((tag: string) => (
                         <span
