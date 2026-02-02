@@ -76,3 +76,34 @@ export const PROJECTS: Project[] = [
     category: "Design System",
   },
 ];
+
+export interface TimelineItem {
+  year: string;
+  title: string;
+  company: string;
+  description: string;
+}
+
+export const TIMELINE: TimelineItem[] = [
+  {
+    year: "2024 - Present",
+    title: "Senior Front-end Engineer",
+    company: "Tech Solutions Inc.",
+    description:
+      "Architecting scalable design systems and optimizing core web vitals for high-traffic platforms.",
+  },
+  {
+    year: "2022 - 2023",
+    title: "Web Developer",
+    company: "Creative Studio",
+    description:
+      "Transformed complex Figma designs into pixel-perfect, motion-rich React applications.",
+  },
+  {
+    year: "2020 - 2021",
+    title: "Junior Developer",
+    company: "StartUp Hub",
+    description:
+      "Mastered the fundamentals of modern JavaScript and built responsive landing pages.",
+  },
+];
