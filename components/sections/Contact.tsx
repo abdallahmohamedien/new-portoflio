@@ -29,7 +29,7 @@ export default function Contact() {
 
                     {/* Magnetic-style Mail Button */}
                     <motion.a
-                        href="mailto:your-email@example.com"
+                        href="abdallahmohamedien@gmail.com"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="group relative flex items-center justify-center w-64 h-64 md:w-80 md:h-80 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-colors duration-500"

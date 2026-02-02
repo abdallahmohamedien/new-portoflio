@@ -52,8 +52,7 @@ export const PROJECTS: Project[] = [
       "NextAuth",
       "TMDB API",
     ],
-    image:
-      "https://images.unsplash.com/photo-1611162616475-46b635cb6868?q=80&w=2070",
+    image: "/Movie.png",
     liveLink: "https://movies-web-app-dun.vercel.app/",
     githubLink: "https://github.com/abdallahmohamedien",
     category: "Web Application",
@@ -64,8 +63,7 @@ export const PROJECTS: Project[] = [
     description:
       "A responsive weather application built with Vue 3 and TypeScript, featuring real-time weather data, geolocation support, and dynamic animated backgrounds based on current conditions.",
     tags: ["Vue 3", "TypeScript", "API Integration", "Tailwind CSS"],
-    image:
-      "https://images.unsplash.com/photo-1501973801540-537f08ccae7b?q=80&w=2070",
+    image: "/Weather.png",
     liveLink: "https://weather-web-app-theta-five.vercel.app/",
     githubLink: "https://github.com/abdallahmohamedien",
     category: "Frontend",
@@ -76,8 +74,7 @@ export const PROJECTS: Project[] = [
     description:
       "A modern attendance system with a clean landing page and authentication flow. Built with a focus on responsive design and usability using Vue.js and Tailwind CSS.",
     tags: ["Vue.js", "Tailwind CSS", "JavaScript"],
-    image:
-      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2070",
+    image: "/Attend.png",
     liveLink: "https://attendance-project-gilt.vercel.app/login",
     githubLink: "https://github.com/abdallahmohamedien",
     category: "Frontend",
@@ -88,8 +85,7 @@ export const PROJECTS: Project[] = [
     description:
       "Contributed to building key sections of the Bookazon web application, including book forms and review components, with a strong focus on component structure and user experience.",
     tags: ["React", "JavaScript", "Bootstrap", "React-Bootstrap"],
-    image:
-      "https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=2070",
+    image: "/Bookazone.png",
     liveLink: "https://na3ml.github.io/Bookazon_Frontend/",
     githubLink: "https://github.com/na3ml",
     category: "Team Project",
@@ -141,12 +137,13 @@ export interface Skill {
 }
 
 export const SKILLS: Skill[] = [
-  { name: "Next.js", level: "Expert", icon: "🚀" },
-  { name: "TypeScript", level: "Advanced", icon: "🔷" },
-  { name: "React", level: "Expert", icon: "⚛️" },
+  { name: "Next.js", level: "Advanced", icon: "🚀" },
+  { name: "TypeScript", level: "Intermediate", icon: "🔷" },
+  { name: "React", level: "Advanced", icon: "⚛️" },
   { name: "Tailwind CSS", level: "Expert", icon: "🎨" },
-  { name: "Framer Motion", level: "Advanced", icon: "🎬" },
-  { name: "Three.js", level: "Intermediate", icon: "🌐" },
-  { name: "Node.js", level: "Advanced", icon: "🟢" },
-  { name: "PostgreSQL", level: "Intermediate", icon: "🐘" },
+  { name: "Framer Motion", level: "Intermediate", icon: "🎬" },
+  { name: "Vue.js", level: "Advanced", icon: "🟢" },
+  { name: "Node.js", level: "Intermediate", icon: "🟢" },
+  { name: "MongoDB", level: "Intermediate", icon: "🍃" },
+  { name: "Git & GitHub", level: "Advanced", icon: "🐙" },
 ];

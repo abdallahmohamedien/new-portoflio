@@ -1,8 +1,23 @@
 "use client";
+
 import React from "react";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { SiNextdotjs, SiTypescript, SiTailwindcss, SiFramer, SiReact, SiNodedotjs } from "react-icons/si";
 import { IconType } from "react-icons";
+
+import {
+    SiHtml5,
+    SiCss3,
+    SiJavascript,
+    SiReact,
+    SiNextdotjs,
+    SiTailwindcss,
+    SiBootstrap,
+    SiVuedotjs,
+    SiNodedotjs,
+    SiMongodb,
+    SiGit,
+    SiTypescript,
+} from "react-icons/si";
 
 interface Tool {
     name: string;
@@ -12,12 +27,15 @@ interface Tool {
 }
 
 const tools: Tool[] = [
-    { name: "Next.js 15", icon: SiNextdotjs, level: "Expert", color: "#ffffff" },
-    { name: "TypeScript", icon: SiTypescript, level: "Advanced", color: "#3178C6" },
-    { name: "React", icon: SiReact, level: "Expert", color: "#61DAFB" },
-    { name: "Framer Motion", icon: SiFramer, level: "Advanced", color: "#E11D48" },
+    { name: "React", icon: SiReact, level: "Advanced", color: "#61DAFB" },
+    { name: "JavaScript", icon: SiJavascript, level: "Advanced", color: "#F7DF1E" },
+    { name: "Next.js", icon: SiNextdotjs, level: "Advanced", color: "#ffffff" },
+    { name: "Vue.js", icon: SiVuedotjs, level: "Advanced", color: "#4FC08D" },
+    { name: "TypeScript", icon: SiTypescript, level: "Intermediate", color: "#3178C6" },
     { name: "Tailwind CSS", icon: SiTailwindcss, level: "Expert", color: "#38B2AC" },
     { name: "Node.js", icon: SiNodedotjs, level: "Intermediate", color: "#339933" },
+    { name: "MongoDB", icon: SiMongodb, level: "Intermediate", color: "#47A248" },
+    { name: "Git & GitHub", icon: SiGit, level: "Advanced", color: "#F05032" },
 ];
 
 export default function Stack() {
@@ -33,6 +51,7 @@ export default function Stack() {
                         <span className="w-8 h-[1px] bg-teal-400"></span>
                         TECHNICAL ARCHITECTURE
                     </motion.div>
+
                     <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white">
                         POWERTRAIN <span className="text-white/20">&</span> <br />
                         MODERN STACK
@@ -53,7 +72,11 @@ function StackCard({ tool, index }: { tool: Tool; index: number }) {
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
-    function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
+    function handleMouseMove({
+        currentTarget,
+        clientX,
+        clientY,
+    }: React.MouseEvent<HTMLDivElement>) {
         const { left, top } = currentTarget.getBoundingClientRect();
         mouseX.set(clientX - left);
         mouseY.set(clientY - top);
@@ -88,6 +111,7 @@ function StackCard({ tool, index }: { tool: Tool; index: number }) {
                     >
                         <tool.icon size={32} />
                     </div>
+
                     <span className="text-[10px] font-mono text-white/30 uppercase tracking-widest border border-white/5 px-2 py-1 rounded">
                         {tool.level}
                     </span>
