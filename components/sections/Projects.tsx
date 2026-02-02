@@ -7,7 +7,7 @@ import { PROJECTS, Project } from "@/constants";
 export default function Projects() {
     return (
         <section id="projects" className="py-32 px-6">
-            <div className="max-w-7xl mx-auto">
+            <div className="relative max-w-7xl mx-auto">
                 <div className="mb-24">
                     <motion.p
                         initial={{ opacity: 0 }}

@@ -24,7 +24,7 @@ export default function Navbar() {
 
     return (
         <header className="fixed top-0 w-full z-[100] transition-all duration-500">
-            <div className={`mx-auto transition-all duration-500 ${isScrolled ? "max-w-3xl mt-4" : "max-w-7xl mt-0"
+            <div className={`mx-auto transition-all duration-500 ${isScrolled ? "max-w-3xl mt-4 p-2" : "max-w-7xl mt-0"
                 }`}>
                 <nav className={`relative flex items-center justify-between px-6 py-3 transition-all duration-500 ${isScrolled
                     ? "bg-black/40 backdrop-blur-xl border border-white/20 rounded-full shadow-2xl"
@@ -36,7 +36,7 @@ export default function Navbar() {
                         whileHover={{ scale: 1.05 }}
                         className="text-xl font-black tracking-tighter cursor-pointer"
                     >
-                        PORTFOLIO<span className="text-teal-400">.</span>
+                        Abdallah<span className="text-teal-400">.</span>Mo
                     </motion.div>
 
                     {/* Desktop Menu */}

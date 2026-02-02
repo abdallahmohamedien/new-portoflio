@@ -52,9 +52,9 @@ export default function Contact() {
 
                         <div className="flex gap-8">
                             {[
-                                { icon: Github, href: "#" },
-                                { icon: Linkedin, href: "#" },
-                                { icon: Twitter, href: "#" },
+                                { icon: Github, href: "https://github.com/abdallahmohamedien" },
+                                { icon: Linkedin, href: "https://www.linkedin.com/in/abdallah-mohamedien" },
+                                { icon: Twitter, href: "https://x.com/Abdallah_mo522" },
                             ].map((Social, i) => (
                                 <motion.a
                                     key={i}
@@ -68,7 +68,7 @@ export default function Contact() {
                         </div>
 
                         <div className="text-gray-500 font-mono text-sm uppercase tracking-widest">
-                            Cairo / 11:04 PM
+                            Abdallah Mo / 11:04 PM
                         </div>
                     </div>
                 </div>

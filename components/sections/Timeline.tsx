@@ -18,7 +18,7 @@ export default function Timeline() {
 
     return (
         <section id="timeline" ref={containerRef} className="py-32 px-6 relative">
-            <div className="max-w-4xl mx-auto">
+            <div className="relative max-w-4xl mx-auto">
                 <div className="mb-20">
                     <motion.p
                         initial={{ opacity: 0 }}
