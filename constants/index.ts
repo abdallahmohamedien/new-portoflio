@@ -27,12 +27,52 @@ export const SOCIAL_LINKS = [
   },
 ];
 
-export const PROJECTS = [
+export interface Project {
+  id: number;
+  title: string;
+  description: string;
+  tags: string[];
+  image: string;
+  liveLink: string;
+  githubLink: string;
+  category: string;
+}
+
+export const PROJECTS: Project[] = [
   {
-    title: "E-Commerce App",
-    description: "Built with Next.js 14 and Stripe.",
-    tech: ["Next.js", "Tailwind", "Prisma"],
-    link: "#",
-    image: "/project1.jpg",
+    id: 1,
+    title: "Quantum E-commerce",
+    description:
+      "A high-performance storefront featuring real-time inventory tracking and seamless Stripe integration for global payments.",
+    tags: ["Next.js 15", "TypeScript", "Stripe", "Prisma"],
+    image:
+      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070",
+    liveLink: "https://example.com",
+    githubLink: "https://github.com",
+    category: "Full-stack",
+  },
+  {
+    id: 2,
+    title: "AI Synthesis Lab",
+    description:
+      "An advanced dashboard for generative AI models, offering real-time streaming responses and sophisticated prompt engineering tools.",
+    tags: ["OpenAI API", "Framer Motion", "Tailwind CSS"],
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070",
+    liveLink: "https://example.com",
+    githubLink: "https://github.com",
+    category: "AI / Web App",
+  },
+  {
+    id: 3,
+    title: "Visionary Studio",
+    description:
+      "A digital agency portfolio with deep parallax effects and complex layout transitions designed for high-end brand storytelling.",
+    tags: ["Next.js", "Three.js", "Gsap"],
+    image:
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564",
+    liveLink: "https://example.com",
+    githubLink: "https://github.com",
+    category: "Design System",
   },
 ];
