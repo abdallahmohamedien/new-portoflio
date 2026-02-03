@@ -1,9 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { IconType } from "react-icons";
-
+import { motion } from "framer-motion";
 import {
     SiJavascript,
     SiReact,
@@ -16,111 +14,63 @@ import {
     SiTypescript,
 } from "react-icons/si";
 
-interface Tool {
-    name: string;
-    icon: IconType;
-    level: string;
-    color: string;
-}
-
-const tools: Tool[] = [
-    { name: "React", icon: SiReact, level: "Advanced", color: "#61DAFB" },
-    { name: "JavaScript", icon: SiJavascript, level: "Advanced", color: "#F7DF1E" },
-    { name: "Next.js", icon: SiNextdotjs, level: "Advanced", color: "#ffffff" },
-    { name: "Vue.js", icon: SiVuedotjs, level: "Advanced", color: "#4FC08D" },
-    { name: "TypeScript", icon: SiTypescript, level: "Intermediate", color: "#3178C6" },
-    { name: "Tailwind CSS", icon: SiTailwindcss, level: "Expert", color: "#38B2AC" },
-    { name: "Node.js", icon: SiNodedotjs, level: "Intermediate", color: "#339933" },
-    { name: "MongoDB", icon: SiMongodb, level: "Intermediate", color: "#47A248" },
-    { name: "Git & GitHub", icon: SiGit, level: "Advanced", color: "#F05032" },
+const tools = [
+    { name: "React", icon: SiReact, color: "#61DAFB" },
+    { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+    { name: "Next.js", icon: SiNextdotjs, color: "#ffffff" },
+    { name: "Vue.js", icon: SiVuedotjs, color: "#4FC08D" },
+    { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+    { name: "Tailwind CSS", icon: SiTailwindcss, color: "#38B2AC" },
+    { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+    { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+    { name: "Git", icon: SiGit, color: "#F05032" },
 ];
 
-export default function Stack() {
+export default function StackMarquee() {
+    // نكرر المصفوفة مرتين لضمان عدم وجود فراغ أثناء الحركة اللانهائية
+    const duplicatedTools = [...tools, ...tools];
+
     return (
-        <section id="stack" className="py-32 px-6 relative overflow-hidden">
-            <div className="max-w-7xl mx-auto relative z-10">
-                <div className="flex flex-col mb-20">
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        className="flex items-center gap-2 text-teal-400 font-mono text-sm mb-4"
-                    >
-                        <span className="w-8 h-[1px] bg-teal-400"></span>
-                        TECHNICAL ARCHITECTURE
-                    </motion.div>
-
-                    <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white">
-                        POWERTRAIN <span className="text-white/20">&</span> <br />
-                        MODERN STACK
-                    </h2>
+        <section id="stack" className="py-20 bg-[#050505] overflow-hidden">
+            <div className="container mx-auto px-6 mb-12">
+                <div className="flex items-center gap-2 text-teal-400 font-mono text-sm mb-4">
+                    <span className="w-8 h-[1px] bg-teal-400"></span>
+                    TECH STACK
                 </div>
+            </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {tools.map((tool, i) => (
-                        <StackCard key={tool.name} tool={tool} index={i} />
+
+            <div className="relative flex overflow-hidden">
+                <motion.div
+                    className="flex whitespace-nowrap gap-10"
+                    animate={{ x: ["0%", "-50%"] }}
+                    transition={{
+                        duration: 25,
+                        ease: "linear",
+                        repeat: Infinity,
+                    }}
+                >
+                    {duplicatedTools.map((tool, i) => (
+                        <div
+                            key={i}
+                            className="flex items-center gap-4 bg-white/[0.03] border border-white/10 px-8 py-4 rounded-2xl hover:bg-white/[0.08] transition-colors group"
+                        >
+                            <tool.icon
+                                size={30}
+                                style={{ color: tool.color }}
+                                className="group-hover:scale-125 transition-transform duration-300"
+                            />
+                            <span className="text-white/70 font-bold uppercase tracking-widest text-lg">
+                                {tool.name}
+                            </span>
+                        </div>
                     ))}
-                </div>
+                </motion.div>
+
+
+                <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#050505] to-transparent z-10" />
+                <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#050505] to-transparent z-10" />
             </div>
         </section>
-    );
-}
-
-function StackCard({ tool, index }: { tool: Tool; index: number }) {
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
-
-    function handleMouseMove({
-        currentTarget,
-        clientX,
-        clientY,
-    }: React.MouseEvent<HTMLDivElement>) {
-        const { left, top } = currentTarget.getBoundingClientRect();
-        mouseX.set(clientX - left);
-        mouseY.set(clientY - top);
-    }
-
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1, duration: 0.5 }}
-            onMouseMove={handleMouseMove}
-            className="group relative rounded-3xl border border-white/10 bg-white/[0.02] p-8 transition-colors hover:bg-white/[0.05]"
-        >
-            <motion.div
-                className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 transition duration-300 group-hover:opacity-100"
-                style={{
-                    background: useMotionTemplate`
-            radial-gradient(
-              650px circle at ${mouseX}px ${mouseY}px,
-              ${tool.color}15,
-              transparent 80%
-            )
-          `,
-                }}
-            />
-
-            <div className="relative flex flex-col h-full justify-between">
-                <div className="flex justify-between items-start">
-                    <div
-                        className="p-4 rounded-2xl bg-white/5 border border-white/10 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
-                        style={{ color: tool.color }}
-                    >
-                        <tool.icon size={32} />
-                    </div>
-
-                    <span className="text-[10px] font-mono text-white/30 uppercase tracking-widest border border-white/5 px-2 py-1 rounded">
-                        {tool.level}
-                    </span>
-                </div>
-
-                <div className="mt-12">
-                    <h3 className="text-2xl font-bold tracking-tight text-white/90 uppercase">
-                        {tool.name}
-                    </h3>
-                    <div className="mt-2 h-1 w-0 bg-gradient-to-r from-teal-500 to-transparent transition-all duration-500 group-hover:w-full" />
-                </div>
-            </div>
-        </motion.div>
     );
 }

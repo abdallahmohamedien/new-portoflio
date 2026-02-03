@@ -31,7 +31,7 @@ export default function Navbar() {
                     : "bg-transparent border-transparent"
                     }`}>
 
-                    {/* Logo */}
+
                     <motion.div
                         whileHover={{ scale: 1.05 }}
                         className="text-xl font-black tracking-tighter cursor-pointer"
@@ -39,7 +39,7 @@ export default function Navbar() {
                         Abdallah<span className="text-teal-400">.</span>Mo
                     </motion.div>
 
-                    {/* Desktop Menu */}
+
                     <div className="hidden md:flex items-center gap-2">
                         {navLinks.map((link) => (
                             <a
@@ -72,8 +72,6 @@ export default function Navbar() {
                             Lets Talk
                         </motion.button>
                     </div>
-
-                    {/* Mobile Toggle */}
                     <button
                         className="md:hidden p-2 rounded-full bg-white/5 border border-white/10"
                         onClick={() => setIsMobileMenuOpen(true)}
@@ -83,7 +81,7 @@ export default function Navbar() {
                 </nav>
             </div>
 
-            {/* Fullscreen Mobile Menu */}
+
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div

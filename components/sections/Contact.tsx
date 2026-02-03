@@ -5,7 +5,6 @@ import { ArrowUpRight, Mail, Github, Linkedin, Twitter } from "lucide-react";
 export default function Contact() {
     return (
         <section id="contact" className="py-32 px-6 bg-[#080808] relative overflow-hidden">
-            {/* Background Glow */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-teal-500/5 blur-[120px] rounded-full -z-10" />
 
             <div className="max-w-7xl mx-auto">

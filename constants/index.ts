@@ -1,4 +1,22 @@
 import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
+import { IconType } from "react-icons";
+import {
+  SiJavascript,
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiVuedotjs,
+  SiNodedotjs,
+  SiMongodb,
+  SiGit,
+  SiTypescript,
+  SiPostman,
+  SiNuxtdotjs,
+  SiVercel,
+  SiSourcetree,
+  SiFirebase,
+  SiBootstrap,
+} from "react-icons/si";
 
 export const SOCIAL_LINKS = [
   {
@@ -133,17 +151,47 @@ export const TIMELINE: TimelineItem[] = [
 export interface Skill {
   name: string;
   level: string;
-  icon: string;
+  icon: IconType;
+  color: string;
 }
 
 export const SKILLS: Skill[] = [
-  { name: "Next.js", level: "Advanced", icon: "🚀" },
-  { name: "TypeScript", level: "Intermediate", icon: "🔷" },
-  { name: "React", level: "Advanced", icon: "⚛️" },
-  { name: "Tailwind CSS", level: "Expert", icon: "🎨" },
-  { name: "Framer Motion", level: "Intermediate", icon: "🎬" },
-  { name: "Vue.js", level: "Advanced", icon: "🟢" },
-  { name: "Node.js", level: "Intermediate", icon: "🟢" },
-  { name: "MongoDB", level: "Intermediate", icon: "🍃" },
-  { name: "Git & GitHub", level: "Advanced", icon: "🐙" },
+  { name: "React", level: "Advanced", icon: SiReact, color: "#61DAFB" },
+  { name: "Vue.js", level: "Expert", icon: SiVuedotjs, color: "#4FC08D" },
+  { name: "Next.js", level: "Advanced", icon: SiNextdotjs, color: "#ffffff" },
+  {
+    name: "Nuxt.js",
+    level: "Intermediate",
+    icon: SiNuxtdotjs,
+    color: "#00DC82",
+  },
+
+  {
+    name: "TypeScript",
+    level: "Advanced",
+    icon: SiTypescript,
+    color: "#3178C6",
+  },
+  {
+    name: "Tailwind CSS",
+    level: "Expert",
+    icon: SiTailwindcss,
+    color: "#38B2AC",
+  },
+  { name: "Vercel", level: "Advanced", icon: SiVercel, color: "#ffffff" },
+  { name: "Postman", level: "Advanced", icon: SiPostman, color: "#FF6C37" },
+  {
+    name: "SourceTree",
+    level: "Intermediate",
+    icon: SiSourcetree,
+    color: "#0052CC",
+  },
+  { name: "Git & GitHub", level: "Expert", icon: SiGit, color: "#F05032" },
+  { name: "MongoDB", level: "Intermediate", icon: SiMongodb, color: "#47A248" },
+  {
+    name: "Node.js",
+    level: "Intermediate",
+    icon: SiNodedotjs,
+    color: "#339933",
+  },
 ];
