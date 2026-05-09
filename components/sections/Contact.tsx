@@ -26,7 +26,7 @@ export default function Contact() {
                         LET&apos;S <span className="text-white/20 text-outline">CONNECT</span>
                     </motion.h2>
 
-                    {/* Magnetic-style Mail Button */}
+
                     <motion.a
                         href="mailto:abdallahmohamedien@gmail.com"
                         whileHover={{ scale: 1.05 }}
@@ -39,11 +39,10 @@ export default function Contact() {
                             <ArrowUpRight className="w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
                         </div>
 
-                        {/* Spinning Text Outline (CSS Only) */}
+
                         <div className="absolute inset-0 rounded-full border-t-2 border-teal-400/20 animate-spin [animation-duration:8s]" />
                     </motion.a>
 
-                    {/* Social Footer */}
                     <div className="mt-32 w-full flex flex-col md:flex-row justify-between items-center gap-8 border-t border-white/10 pt-12">
                         <div className="text-gray-500 font-mono text-sm">
                             © 2026 ALL RIGHTS RESERVED

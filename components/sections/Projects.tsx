@@ -42,17 +42,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
     return (
         <div ref={container} className={`flex flex-col ${index % 2 !== 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-center`}>
-            {/* Image Side */}
-            <div className="relative w-full lg:w-3/5 aspect-[16/10] overflow-hidden rounded-3xl bg-white/5 border border-white/10 group">
-                <motion.img
-                    style={{ scale: 1.1, y }}
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700"
-                />
-            </div>
 
-            {/* Content Side */}
+
+
             <div className="w-full lg:w-2/5">
                 <span className="text-teal-400 font-mono text-sm">Project 0{index + 1}</span>
                 <h3 className="text-4xl font-bold mt-4 mb-6 uppercase tracking-tight">{project.title}</h3>

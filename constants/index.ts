@@ -108,6 +108,28 @@ export const PROJECTS: Project[] = [
     githubLink: "https://github.com/na3ml",
     category: "Team Project",
   },
+  {
+    id: 5,
+    title: "AI Ghostwriter Pro",
+    description:
+      "A high-performance SaaS-like application built with Next.js and Tailwind CSS. It features a robust integration with the Groq API for ultra-fast text generation.",
+    tags: ["React", "Next", "JavaScript", "Bootstrap", "React-Bootstrap"],
+    image: "/Bookazone.png",
+    liveLink: "https://ai-ghostwriter-iota.vercel.app/",
+    githubLink: "https://github.com/abdallahmohamedien/AI-Ghostwriter",
+    category: "Team Project",
+  },
+  {
+    id: 6,
+    title: "",
+    description:
+      "A high-performance, responsive web application built to provide a seamless shopping and browsing experience for electrical products. The project focuses on clean UI, fast navigation, and a Mobile-First approach to ensure accessibility",
+    tags: ["React", "Next", "JavaScript", "Bootstrap", "React-Bootstrap"],
+    image: "/Bookazone.png",
+    liveLink: "https://electric-web-app.vercel.app/",
+    githubLink: "https://github.com/abdallahmohamedien/electric-web-app",
+    category: "Team Project",
+  },
 ];
 
 export interface TimelineItem {

@@ -75,11 +75,11 @@ export default function Hero() {
 
                         <div className="relative z-10 w-full h-full rounded-[2rem] overflow-hidden border border-white/10">
                             <Image
-                                src="/Temo.jpg"
+                                src="/Profile.png"
                                 alt="Front-End Developer Portfolio"
                                 fill
                                 priority
-                                className="object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-110 hover:scale-100"
+                                className="object-cover hover:grayscale-0 transition-all duration-700 scale-120 hover:scale-110"
                             />
                         </div>
 

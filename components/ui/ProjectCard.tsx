@@ -5,7 +5,7 @@ import Image from "next/image";
 export const ProjectCard = ({ project }: { project: Project }) => {
     return (
         <div className="group relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:bg-white/[0.07] transition-all duration-500">
-            {/* Image Section */}
+            
             <div className="relative h-48 w-full overflow-hidden">
                 <Image
                     src={project.image}
@@ -23,7 +23,7 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                 </div>
             </div>
 
-            {/* Content Section */}
+            
             <div className="p-6">
                 <div className="flex justify-between items-start mb-2">
                     <span className="text-[10px] font-mono text-teal-400 uppercase tracking-widest bg-teal-400/10 px-2 py-1 rounded">

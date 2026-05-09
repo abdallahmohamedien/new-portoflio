@@ -27,7 +27,7 @@ const tools = [
 ];
 
 export default function StackMarquee() {
-    // نكرر المصفوفة مرتين لضمان عدم وجود فراغ أثناء الحركة اللانهائية
+  
     const duplicatedTools = [...tools, ...tools];
 
     return (
