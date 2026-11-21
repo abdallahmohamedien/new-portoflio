@@ -2,8 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    // AVIF first (smaller), WebP fallback for browsers without AVIF support.
-    formats: ["image/avif", "image/webp"],
+    // Serve images as static files from the CDN — no Vercel Image Optimization
+    // (avoids Hobby-plan transformation quota / 402 errors). Assets are pre-optimized.
+    unoptimized: true,
   },
 };
 

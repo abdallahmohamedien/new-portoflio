@@ -47,7 +47,6 @@ export function HeroPortrait() {
             alt={`Portrait of ${PROFILE.name}`}
             fill
             priority
-            sizes="(min-width: 1024px) 34vw, (min-width: 640px) 24rem, 22rem"
             className="object-cover object-top mix-blend-multiply"
           />
           <div aria-hidden className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink-950/70 to-transparent" />
