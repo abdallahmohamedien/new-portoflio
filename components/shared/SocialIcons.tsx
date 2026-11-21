@@ -1,27 +1,35 @@
-"use client";
-import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
+import { SOCIAL_LINKS } from "@/constants";
+import { cn } from "@/lib/utils";
 
-export function SocialIcons() {
-  const socials = [
-    { icon: Github, href: "#" },
-    { icon: Linkedin, href: "#" },
-    { icon: Twitter, href: "#" },
-    { icon: Instagram, href: '#' }
-  ];
+interface SocialIconsProps {
+  className?: string;
+  size?: "sm" | "md";
+}
+
+/** Verified social profiles as round icon buttons. */
+export function SocialIcons({ className, size = "md" }: SocialIconsProps) {
+  const box = size === "sm" ? "size-9" : "size-11";
+  const icon = size === "sm" ? 15 : 17;
 
   return (
-    <div className="flex gap-3">
-      {socials.map((S, i) => (
-        <motion.a
-          key={i}
-          href={S.href}
-          whileHover={{ scale: 1.1, y: -2 }}
-          className="p-2 rounded-full bg-white/5 border border-white/10 hover:border-teal-400/50 hover:text-teal-400 transition-all"
-        >
-          <S.icon size={17} />
-        </motion.a>
+    <ul className={cn("flex items-center gap-2.5", className)}>
+      {SOCIAL_LINKS.map(({ name, href, icon: Icon }) => (
+        <li key={name}>
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={name}
+            title={name}
+            className={cn(
+              box,
+              "grid place-items-center rounded-full border border-line bg-ink-800/50 text-muted transition-all duration-300 hover:-translate-y-0.5 hover:border-accent-2/60 hover:text-fg",
+            )}
+          >
+            <Icon size={icon} />
+          </a>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

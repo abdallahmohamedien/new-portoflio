@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    // AVIF first (smaller), WebP fallback for browsers without AVIF support.
+    formats: ["image/avif", "image/webp"],
+  },
 };
 
 export default nextConfig;

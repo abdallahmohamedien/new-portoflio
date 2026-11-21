@@ -1,96 +1,78 @@
-"use client";
+import { Code2, Database, FileCheck2, Layers, Palette, Wrench, type LucideIcon } from "lucide-react";
+import { SKILL_GROUPS } from "@/constants";
+import type { SkillGroup } from "@/types";
+import { Reveal } from "@/components/shared/Reveal";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SpotlightCard } from "@/components/ui/SpotlightCard";
+import { TagList } from "@/components/ui/Tag";
+import { cn } from "@/lib/utils";
 
-import React from "react";
-import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { SKILLS, Skill } from "@/constants";
+const ICONS: Record<SkillGroup["id"], LucideIcon> = {
+  languages: Code2,
+  ui: Palette,
+  state: Layers,
+  forms: FileCheck2,
+  backend: Database,
+  tools: Wrench,
+};
 
-export default function Skills() {
-    return (
-        <section id="skills" className="py-32 px-6 bg-[#030303] relative overflow-hidden">
+/** Bento placement: wide → narrow → three equal → full width. */
+const LAYOUT: Record<SkillGroup["id"], string> = {
+  languages: "md:col-span-2 lg:col-span-7",
+  ui: "lg:col-span-5",
+  state: "lg:col-span-4",
+  forms: "lg:col-span-4",
+  backend: "lg:col-span-4",
+  tools: "md:col-span-2 lg:col-span-12",
+};
 
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-teal-500/5 blur-[120px] rounded-full -z-10" />
+function SkillCard({ group }: { group: SkillGroup }) {
+  const Icon = ICONS[group.id];
 
-            <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-24">
-                    <motion.p
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="text-teal-400 font-mono text-sm tracking-[0.4em] mb-4 uppercase"
-                    >
-                        Technical Proficiency
-                    </motion.p>
-                    <h2 className="text-5xl md:text-8xl font-black tracking-tighter uppercase text-white">
-                        My <span className="text-white/20">Skills</span>
-                    </h2>
-                </div>
+  return (
+    <SpotlightCard className="h-full p-6 sm:p-8">
+      <div className="flex items-start justify-between gap-4">
+        <span className="grid size-11 place-items-center rounded-xl border border-line-strong bg-ink-900 text-accent-2">
+          <Icon size={20} aria-hidden />
+        </span>
+        <span className="font-mono text-xs text-subtle tabular-nums">
+          {String(group.items.length).padStart(2, "0")} {group.items.length === 1 ? "item" : "items"}
+        </span>
+      </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-                    {SKILLS.map((skill, index) => (
-                        <SkillCard key={skill.name} skill={skill} index={index} />
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
+      <h3 className="mt-8 font-display text-xl leading-snug font-semibold tracking-[-0.02em] text-fg sm:text-[1.4rem]">
+        {group.title}
+      </h3>
+      <p className="mt-2 text-[0.95rem] text-muted">{group.summary}</p>
+
+      <TagList items={group.items} variant="skill" label={group.title} className="mt-6" />
+    </SpotlightCard>
+  );
 }
 
-function SkillCard({ skill, index }: { skill: Skill; index: number }) {
+export default function Skills() {
+  return (
+    <section id="skills" className="relative border-y border-line bg-ink-900 py-24 sm:py-32">
+      <div className="container-page">
+        <SectionHeading
+          index="02"
+          eyebrow="Technical skills"
+          title={
+            <>
+              The toolkit behind <span className="text-muted">the work.</span>
+            </>
+          }
+          description="Grouped by where each tool fits in the stack — from the interface layer down to data, integration and delivery."
+        />
 
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
-
-    function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
-        const { left, top } = currentTarget.getBoundingClientRect();
-        mouseX.set(clientX - left);
-        mouseY.set(clientY - top);
-    }
-
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-                duration: 0.5,
-                delay: index * 0.1,
-                ease: "easeOut"
-            }}
-            onMouseMove={handleMouseMove}
-            className="group relative p-8 rounded-3xl bg-white/[0.02] border border-white/10 hover:border-white/20 transition-all duration-500 overflow-hidden"
-        >
-            <motion.div
-                className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 group-hover:opacity-100 transition duration-300"
-                style={{
-                    background: useMotionTemplate`
-                        radial-gradient(
-                            250px circle at ${mouseX}px ${mouseY}px,
-                            rgba(45, 212, 191, 0.15),
-                            transparent 80%
-                        )
-                    `,
-                }}
-            />
-
-            <div className="relative z-10 flex flex-col items-center text-center">
-
-                <div className="text-5xl mb-6 transform group-hover:scale-110 transition-transform" style={{ color: skill.color }}>
-                    <skill.icon />
-                </div>
-
-                <h3 className="text-xl font-bold text-white mb-3 tracking-tight group-hover:text-teal-400 transition-colors">
-                    {skill.name}
-                </h3>
-
-
-                <div className="px-3 py-1 rounded-full bg-white/5 border border-white/5 group-hover:border-teal-500/30 transition-colors">
-                    <p className="text-teal-400/80 group-hover:text-teal-400 font-mono text-[10px] uppercase tracking-widest">
-                        {skill.level}
-                    </p>
-                </div>
-            </div>
-
-
-            <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-teal-500 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
-        </motion.div>
-    );
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-12 lg:gap-5">
+          {SKILL_GROUPS.map((group, i) => (
+            <Reveal key={group.id} delay={i * 0.05} className={cn("h-full", LAYOUT[group.id])}>
+              <SkillCard group={group} />
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

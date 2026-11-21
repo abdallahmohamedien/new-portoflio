@@ -1,219 +1,289 @@
-import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
-import { IconType } from "react-icons";
-import {
-  SiJavascript,
-  SiReact,
-  SiNextdotjs,
-  SiTailwindcss,
-  SiVuedotjs,
-  SiNodedotjs,
-  SiMongodb,
-  SiGit,
-  SiTypescript,
-  SiPostman,
-  SiNuxtdotjs,
-  SiVercel,
-  SiSourcetree,
-  SiFirebase,
-  SiBootstrap,
-} from "react-icons/si";
+/**
+ * All portfolio content lives here, separate from presentation.
+ * Sources: CV + details confirmed by Abdallah. Do not add unverified claims.
+ */
+import { Linkedin } from "lucide-react";
+import { SiGithub, SiX } from "react-icons/si";
+import type {
+  Credential,
+  Experience,
+  NavLink,
+  Project,
+  ProjectLink,
+  SkillGroup,
+  SocialLink,
+} from "@/types";
 
-export const SOCIAL_LINKS = [
-  {
-    name: "Github",
-    href: "https://github.com/abdallahmohamedien",
-    icon: Github,
-    color: "#24292e",
-  },
-  {
-    name: "Linkedin",
-    href: "https://www.linkedin.com/in/abdallah-mohamedien",
-    icon: Linkedin,
-    color: "#0077b5",
-  },
-  {
-    name: "Twitter",
-    href: "https://twitter.com/your-username",
-    icon: Twitter,
-    color: "#1da1f2",
-  },
-  {
-    name: "Instagram",
-    href: "https://twitter.com/your-username",
-    icon: Instagram,
-    color: "#1da1f2",
-  },
+/* ------------------------------------------------------------------ */
+/* Profile                                                            */
+/* ------------------------------------------------------------------ */
+
+export const PROFILE = {
+  name: "Abdallah Mohamedien",
+  initials: "AM",
+  role: "Junior Frontend Developer",
+  company: "Wexcute",
+  location: "Cairo, Egypt",
+  email: "abdallahmohamedien@gmail.com",
+  github: "https://github.com/abdallahmohamedien",
+  headline: "Building Digital Experiences That Make an Impact.",
+  intro:
+    "I build modern, responsive, and interactive web applications with a focus on clean architecture, performance, and exceptional user experiences.",
+} as const;
+
+/* ------------------------------------------------------------------ */
+/* Navigation & social links (verified only)                           */
+/* ------------------------------------------------------------------ */
+
+export const NAV_LINKS: NavLink[] = [
+  { name: "Work", href: "#work" },
+  { name: "Skills", href: "#skills" },
+  { name: "About", href: "#about" },
+  { name: "Experience", href: "#experience" },
 ];
 
-export interface Project {
-  id: number;
-  title: string;
-  description: string;
-  tags: string[];
-  image: string;
-  liveLink: string;
-  githubLink: string;
-  category: string;
-}
+export const SOCIAL_LINKS: SocialLink[] = [
+  { name: "GitHub", handle: "abdallahmohamedien", href: PROFILE.github, icon: SiGithub },
+  {
+    name: "LinkedIn",
+    handle: "abdallah-mohamedien",
+    href: "https://www.linkedin.com/in/abdallah-mohamedien/",
+    icon: Linkedin,
+  },
+  { name: "X", handle: "@Abdallah_mo522", href: "https://x.com/Abdallah_mo522", icon: SiX },
+];
 
+/* ------------------------------------------------------------------ */
+/* Projects                                                           */
+/* ------------------------------------------------------------------ */
+
+/** Featured projects, in display order. */
 export const PROJECTS: Project[] = [
   {
-    id: 1,
-    title: "Interactive Movie Web App",
+    id: "pos",
+    title: "Store Order & Repair POS System",
+    category: "Business dashboard",
     description:
-      "A full-featured movie web application that displays trending and categorized movies with search, favorites, and authentication. Focused on performance, clean UI, and real-world API integration.",
-    tags: [
-      "Next.js",
-      "React",
-      "Tailwind CSS",
-      "MongoDB",
-      "NextAuth",
-      "TMDB API",
-    ],
-    image: "/Movie.png",
-    liveLink: "https://movies-web-app-dun.vercel.app/",
-    githubLink: "https://github.com/abdallahmohamedien/movies-web-app",
-    category: "Web Application",
+      "Retail and service-management dashboard for orders, repair workflows, inventory, and invoices.",
+    contribution:
+      "Integrated Supabase RPC for backend transactions, dynamic data tables, and real-time repair-status updates.",
+    tags: ["Next.js", "React", "TypeScript", "Supabase", "Tailwind CSS", "TanStack Query"],
+    liveLink: "https://mobile-pos-system-three.vercel.app/",
   },
   {
-    id: 2,
-    title: "Weather App",
+    id: "wild-oasis",
+    title: "The Wild Oasis",
+    category: "Cabin booking app",
     description:
-      "A responsive weather application built with Vue 3 and TypeScript, featuring real-time weather data, geolocation support, and dynamic animated backgrounds based on current conditions.",
-    tags: ["Vue 3", "TypeScript", "API Integration", "Tailwind CSS"],
-    image: "/Weather.png",
-    liveLink: "https://weather-web-app-theta-five.vercel.app/",
-    githubLink: "https://github.com/abdallahmohamedien/weather-web-app",
-    category: "Frontend",
+      "Cabin reservation app with room management, pricing tools, and guest authentication.",
+    contribution:
+      "Implemented optimistic UI updates, Server Actions for database mutations, and responsive client dashboards.",
+    tags: ["Next.js", "React", "Supabase", "Tailwind CSS", "Server Actions", "TanStack Query"],
+    liveLink: "https://the-wildd-oasis-demo.vercel.app/",
+    githubLink: "https://github.com/abdallahmohamedien/the-wildd-oasis",
   },
   {
-    id: 3,
-    title: "Attendance Management System",
-    description:
-      "A modern attendance system with a clean landing page and authentication flow. Built with a focus on responsive design and usability using Vue.js and Tailwind CSS.",
-    tags: ["Vue.js", "Tailwind CSS", "JavaScript"],
-    image: "/Attend.png",
-    liveLink: "https://attendance-project-gilt.vercel.app/login",
-    githubLink: "https://github.com/abdallahmohamedien/FE-project",
-    category: "Frontend",
-  },
-  {
-    id: 4,
-    title: "Bookazon Web App",
-    description:
-      "Contributed to building key sections of the Bookazon web application, including book forms and review components, with a strong focus on component structure and user experience.",
-    tags: ["React", "JavaScript", "Bootstrap", "React-Bootstrap"],
-    image: "/Bookazone.png",
-    liveLink: "https://na3ml.github.io/Bookazon_Frontend/",
-    githubLink: "https://github.com/na3ml",
-    category: "Team Project",
-  },
-  {
-    id: 5,
+    id: "ghostwriter",
     title: "AI Ghostwriter Pro",
-    description:
-      "A high-performance SaaS-like application built with Next.js and Tailwind CSS. It features a robust integration with the Groq API for ultra-fast text generation.",
-    tags: ["React", "Next", "JavaScript", "Bootstrap", "React-Bootstrap"],
-    image: "/Bookazone.png",
+    category: "AI SaaS",
+    description: "SaaS application for AI-assisted content generation and editing.",
+    contribution:
+      "Integrated the Groq API for low-latency response streaming and JSON output handling.",
+    tags: ["Next.js", "React", "Tailwind CSS", "Groq API"],
     liveLink: "https://ai-ghostwriter-iota.vercel.app/",
     githubLink: "https://github.com/abdallahmohamedien/AI-Ghostwriter",
-    category: "Team Project",
   },
   {
-    id: 6,
-    title: "",
+    id: "movies",
+    title: "Interactive Movie Web App",
+    category: "Entertainment platform",
     description:
-      "A high-performance, responsive web application built to provide a seamless shopping and browsing experience for electrical products. The project focuses on clean UI, fast navigation, and a Mobile-First approach to ensure accessibility",
-    tags: ["React", "Next", "JavaScript", "Bootstrap", "React-Bootstrap"],
-    image: "/Bookazone.png",
+      "Movie application featuring categories, live search, watchlists, and user profiles.",
+    contribution:
+      "Integrated TMDB for trending entertainment data and NextAuth.js with MongoDB for session storage.",
+    tags: ["Next.js", "React", "Tailwind CSS", "MongoDB", "NextAuth.js", "TMDB API"],
+    liveLink: "https://movies-web-app-dun.vercel.app/",
+    githubLink: "https://github.com/abdallahmohamedien/movies-web-app",
+  },
+  {
+    id: "weather",
+    title: "Weather App",
+    category: "Vue 3 + TypeScript",
+    description:
+      "Weather application with live meteorological data, geolocation detection, and animated backgrounds.",
+    tags: ["Vue.js 3", "TypeScript", "OpenWeather API", "Tailwind CSS"],
+    liveLink: "https://weather-web-app-theta-five.vercel.app/",
+    githubLink: "https://github.com/abdallahmohamedien/weather-web-app",
+  },
+];
+
+/** Smaller projects, shown as a compact list. */
+export const MORE_PROJECTS: ProjectLink[] = [
+  {
+    id: "bookazon",
+    title: "Bookazon",
+    category: "Hackathon · 2nd place",
+    liveLink: "https://na3ml.github.io/Bookazon_Frontend/",
+    githubLink: "https://github.com/na3ml",
+  },
+  {
+    id: "attendance",
+    title: "Attendance Management System",
+    category: "Vue.js",
+    liveLink: "https://attendance-project-gilt.vercel.app/login",
+    githubLink: "https://github.com/abdallahmohamedien/FE-project",
+  },
+  {
+    id: "electric",
+    title: "Electric Web App",
+    category: "Product storefront",
     liveLink: "https://electric-web-app.vercel.app/",
     githubLink: "https://github.com/abdallahmohamedien/electric-web-app",
-    category: "Team Project",
   },
 ];
 
-export interface TimelineItem {
-  year: string;
-  title: string;
-  company: string;
-  description: string;
-}
+/* ------------------------------------------------------------------ */
+/* Skills — grouped, no arbitrary levels                               */
+/* ------------------------------------------------------------------ */
 
-export const TIMELINE: TimelineItem[] = [
+export const SKILL_GROUPS: SkillGroup[] = [
   {
-    year: "Feb 2024 – Jul 2025",
-    title: "Front-End Developer Intern",
+    id: "languages",
+    title: "Languages & Frameworks",
+    summary: "The foundations I build interfaces with.",
+    items: [
+      "JavaScript (ES6+)",
+      "TypeScript",
+      "HTML5",
+      "CSS3 / Sass",
+      "React.js",
+      "Next.js (App Router)",
+      "Vue.js",
+      "Nuxt.js",
+    ],
+  },
+  {
+    id: "ui",
+    title: "UI Libraries & Styling",
+    summary: "Design systems and styling tools for consistent UI.",
+    items: ["Tailwind CSS", "Ant Design", "Bootstrap", "React-Bootstrap"],
+  },
+  {
+    id: "state",
+    title: "State & Data Fetching",
+    summary: "Keeping client and server state predictable.",
+    items: ["TanStack Query", "Redux Toolkit", "Context API", "Pinia"],
+  },
+  {
+    id: "forms",
+    title: "Forms, Validation & Data Handling",
+    summary: "Type-safe forms and schema validation.",
+    items: ["React Hook Form", "Zod"],
+  },
+  {
+    id: "backend",
+    title: "Backend Integration",
+    summary: "Connecting interfaces to real data, auth and realtime.",
+    items: [
+      "REST APIs",
+      "Supabase (RPC, Realtime)",
+      "Server Actions",
+      "Firebase",
+      "MongoDB",
+      "NextAuth.js",
+    ],
+  },
+  {
+    id: "tools",
+    title: "Tools & Workflow",
+    summary: "From editor to code review to deployment.",
+    items: [
+      "Git",
+      "GitHub",
+      "Pull Requests & Code Reviews",
+      "Nx Monorepo",
+      "VS Code",
+      "Cursor",
+      "Vercel",
+      "Postman",
+      "npm",
+      "Vite",
+      "Terminal",
+    ],
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/* Experience & education                                              */
+/* ------------------------------------------------------------------ */
+
+export const EXPERIENCE: Experience[] = [
+  {
+    company: "Wexcute",
+    roles: [
+      {
+        title: "Junior Frontend Developer",
+        period: "Nov 2026 – Present",
+        current: true,
+        description: "Promoted to Junior Frontend Developer after completing the internship.",
+      },
+      { title: "Frontend Developer Intern", period: "Jun 2026 – Oct 2026" },
+    ],
+    stack: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Ant Design",
+      "React Hook Form",
+      "Zod",
+      "TanStack Query",
+      "Nx Monorepo",
+      "REST APIs",
+      "Git, Pull Requests & Code Reviews",
+    ],
+  },
+  {
     company: "Velents AI",
-    description:
-      "Built and maintained multiple product pages including landing pages, authentication flows, and content sections. Worked primarily with Vue.js, Tailwind CSS, and JavaScript, applying modern UI patterns and responsive design principles.",
+    roles: [
+      {
+        title: "Front-End Developer Intern",
+        period: "Feb 2024 – Jul 2025",
+        description:
+          "Built interactive web features including the main landing page, authentication workflows, the Nomaken module, and an e-book viewer using Vue.js, JavaScript, and Tailwind CSS. Used Skeleton and Vue component libraries for a reusable component architecture, and improved page-load experience and cross-browser responsiveness across desktop and mobile.",
+      },
+    ],
   },
   {
-    year: "Jun 2023 – Sep 2023",
-    title: "Front-End Developer Intern",
-    company: "Na3ml Initiative",
-    description:
-      "Contributed to the Bookazon web application by developing core features such as book forms and review sections using React, React-Bootstrap, and JavaScript, focusing on usability and clean component structure.",
-  },
-  {
-    year: "Sep 2020 – Jan 2024",
-    title: "B.Sc. in Computer Science",
-    company: "M.E.T UN",
-    description:
-      "Graduated with a strong foundation in computer science fundamentals, web development concepts, and hands-on projects covering front-end technologies and modern JavaScript frameworks.",
-  },
-  {
-    year: "2025 – Now",
-    title: "Self-Taught Front-End Developer",
-    company: "Personal Projects",
-    description:
-      "Independently learned modern web development fundamentals and built multiple responsive projects using HTML, CSS, JavaScript, React, Vue, and Next.js, with hands-on experience in APIs, authentication, and deployment.",
+    company: "Initiative Na3ml (Roqay Company)",
+    roles: [
+      {
+        title: "Front-End Developer Intern — Hackathon Project",
+        period: "Jun 2023 – Sep 2023",
+        description:
+          "Collaborated on Bookazon, a hotel and destination booking platform, building reservation forms and user-review features with React.js, React-Bootstrap, JavaScript, and React Icons.",
+      },
+    ],
+    achievement: "Won 2nd place among participating teams in the company hackathon.",
   },
 ];
 
-export interface Skill {
-  name: string;
-  level: string;
-  icon: IconType;
-  color: string;
-}
-
-export const SKILLS: Skill[] = [
-  { name: "React", level: "Advanced", icon: SiReact, color: "#61DAFB" },
-  { name: "Vue.js", level: "Expert", icon: SiVuedotjs, color: "#4FC08D" },
-  { name: "Next.js", level: "Advanced", icon: SiNextdotjs, color: "#ffffff" },
+export const EDUCATION: Credential[] = [
   {
-    name: "Nuxt.js",
-    level: "Intermediate",
-    icon: SiNuxtdotjs,
-    color: "#00DC82",
-  },
-
-  {
-    name: "TypeScript",
-    level: "Advanced",
-    icon: SiTypescript,
-    color: "#3178C6",
+    kind: "Degree",
+    title: "Bachelor’s Degree in Computer Science",
+    issuer: "M.E.T, Higher Institute for Management & Information Technology",
+    period: "Sep 2020 – Jan 2024",
   },
   {
-    name: "Tailwind CSS",
-    level: "Expert",
-    icon: SiTailwindcss,
-    color: "#38B2AC",
+    kind: "Course",
+    title: "The Ultimate React Course",
+    issuer: "Jonas Schmedtmann · Udemy",
+    detail: "React, Next.js, Redux, TanStack Query, App Router, Server Actions, Supabase.",
   },
-  { name: "Vercel", level: "Advanced", icon: SiVercel, color: "#ffffff" },
-  { name: "Postman", level: "Advanced", icon: SiPostman, color: "#FF6C37" },
   {
-    name: "SourceTree",
-    level: "Intermediate",
-    icon: SiSourcetree,
-    color: "#0052CC",
-  },
-  { name: "Git & GitHub", level: "Expert", icon: SiGit, color: "#F05032" },
-  { name: "MongoDB", level: "Intermediate", icon: SiMongodb, color: "#47A248" },
-  {
-    name: "Node.js",
-    level: "Intermediate",
-    icon: SiNodedotjs,
-    color: "#339933",
+    kind: "Diploma",
+    title: "Web Development Diploma",
+    issuer: "New Horizons Mansoura",
+    period: "Apr 2020",
   },
 ];

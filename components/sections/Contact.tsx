@@ -1,76 +1,68 @@
-"use client";
-import { motion } from "framer-motion";
-import { ArrowUpRight, Mail, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail } from "lucide-react";
+import { PROFILE, SOCIAL_LINKS } from "@/constants";
+import { Reveal } from "@/components/shared/Reveal";
+import { ButtonLink } from "@/components/ui/Button";
+import { CopyButton } from "@/components/ui/CopyButton";
+import { Eyebrow } from "@/components/ui/Eyebrow";
+import { ArrowIcon } from "@/components/ui/ExternalLink";
 
 export default function Contact() {
-    return (
-        <section id="contact" className="py-32 px-6 bg-[#080808] relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-teal-500/5 blur-[120px] rounded-full -z-10" />
+  return (
+    <section id="contact" className="relative isolate overflow-hidden py-24 sm:py-32">
+      <div aria-hidden className="bg-grid absolute inset-0 -z-10 rotate-180" />
+      <div
+        aria-hidden
+        className="absolute bottom-[calc(-30%-9rem)] left-1/2 -z-10 h-[46rem] w-[66rem] -translate-x-1/2 bg-[radial-gradient(closest-side,rgb(37_99_235/0.16),transparent)]"
+      />
 
-            <div className="max-w-7xl mx-auto">
-                <div className="flex flex-col items-center text-center">
-                    <motion.span
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        className="text-teal-400 font-mono text-sm tracking-[0.4em] uppercase mb-8"
-                    >
-                        Need a high-end interface?
-                    </motion.span>
+      <div className="container-page">
+        <Reveal className="mx-auto max-w-4xl text-center">
+          <Eyebrow index="05" className="mb-6 justify-center">
+            Contact
+          </Eyebrow>
+          <h2 className="font-display text-[2.2rem] leading-[1.08] font-semibold tracking-[-0.04em] text-balance text-fg sm:text-6xl lg:text-[4.25rem]">
+            Have an idea worth building? <span className="text-accent-2">Let&apos;s talk.</span>
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted">
+            Whether it&apos;s a role, a collaboration, or a conversation about frontend craft — my inbox is open.
+          </p>
 
-                    <motion.h2
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="text-6xl md:text-9xl font-black tracking-tighter mb-16"
-                    >
-                        LET&apos;S <span className="text-white/20 text-outline">CONNECT</span>
-                    </motion.h2>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <ButtonLink href={`mailto:${PROFILE.email}`}>
+              <Mail size={17} aria-hidden />
+              {PROFILE.email}
+            </ButtonLink>
+            <CopyButton value={PROFILE.email} label="Copy email" />
+          </div>
+        </Reveal>
 
-
-                    <motion.a
-                        href="mailto:abdallahmohamedien@gmail.com"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="group relative flex items-center justify-center w-64 h-64 md:w-80 md:h-80 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-colors duration-500"
-                    >
-                        <div className="flex flex-col items-center gap-2">
-                            <Mail className="w-8 h-8 group-hover:text-teal-400 transition-colors" />
-                            <span className="font-bold text-xl">Get in touch</span>
-                            <ArrowUpRight className="w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
-                        </div>
-
-
-                        <div className="absolute inset-0 rounded-full border-t-2 border-teal-400/20 animate-spin [animation-duration:8s]" />
-                    </motion.a>
-
-                    <div className="mt-32 w-full flex flex-col md:flex-row justify-between items-center gap-8 border-t border-white/10 pt-12">
-                        <div className="text-gray-500 font-mono text-sm">
-                            © 2026 ALL RIGHTS RESERVED
-                        </div>
-
-                        <div className="flex gap-8">
-                            {[
-                                { icon: Github, href: "https://github.com/abdallahmohamedien" },
-                                { icon: Linkedin, href: "https://www.linkedin.com/in/abdallah-mohamedien" },
-                                { icon: Twitter, href: "https://x.com/Abdallah_mo522" },
-                            ].map((Social, i) => (
-                                <motion.a
-                                    key={i}
-                                    href={Social.href}
-                                    whileHover={{ y: -5, textShadow: "0px 0px 8px rgb(45 212 191)" }}
-                                    className="text-gray-400 hover:text-white transition-all"
-                                >
-                                    <Social.icon size={24} />
-                                </motion.a>
-                            ))}
-                        </div>
-
-                        <div className="text-gray-500 font-mono text-sm uppercase tracking-widest">
-                            Abdallah Mo / 11:04 PM
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
+        <Reveal delay={0.1} className="mx-auto mt-16 max-w-4xl">
+          <ul className="grid gap-3 sm:grid-cols-3">
+            {SOCIAL_LINKS.map(({ name, handle, href, icon: Icon }) => (
+              <li key={name}>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4 rounded-2xl border border-line bg-ink-800/60 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/50"
+                >
+                  <span className="grid size-10 shrink-0 place-items-center rounded-xl border border-line-strong bg-ink-900 text-muted transition-colors group-hover:text-fg">
+                    <Icon size={17} aria-hidden />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-sm font-medium text-fg">{name}</span>
+                    <span className="block truncate text-xs text-subtle">{handle}</span>
+                  </span>
+                  <ArrowIcon
+                    size={16}
+                    className="text-subtle group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent-2"
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </div>
+    </section>
+  );
 }
